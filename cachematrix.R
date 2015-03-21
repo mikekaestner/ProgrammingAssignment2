@@ -24,7 +24,7 @@ cacheSolve <- function(x, ...) {
   inverted <- x$getInverse()
   # If the inverted matrix already exists, return it.
   if (!is.null(inverted)) {
-    message("Your matrix is already inverted. I get it from the cache for you.")
+    message("Your matrix is already inverted. Let me fetch it from the cache for you.")
     return(inverted)
   }
   # If the matrix is not yet inverted, do it.
