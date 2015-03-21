@@ -29,8 +29,9 @@ cacheSolve <- function(x, ...) {
   }
   # If the matrix is not yet inverted, do it.
   matrix <- x$get()
+<<<<<<< HEAD
   inverted <- solve(matrix, ...)
   # Cache the inverted matrix and return it.
-  x$setinv(inverted)
+  x$setInverse(inverted)
   inverted
 }
