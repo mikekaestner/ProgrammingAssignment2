@@ -1,19 +1,19 @@
-## makeCacheMatrix returns a list of functions to set and get the matrix
-## and set and get the inverted matrix to resp from cache.
+## makeCacheMatrix returns a list of functions to 1. set and 2. get the matrix
+## and 3. set and 4. get the inverted matrix to respectively from cache.
 
 makeCacheMatrix <- function(x = matrix()) {
   # Initialize cache
   inverted <- NULL
-  # Set the matrix
+  # 1. Set the matrix
   set <- function(y) {
     x <<- y
     inv <<- NULL
   }
-  # Get the matrix.
+  # 2. Get the matrix.
   get <- function() x
-  # Set the inverted matrix.
+  # 3. Set the inverted matrix.
   setInverse <- function(inverse) inverted <<- inverse
-  # Get the inverted matrix.
+  # 4. Get the inverted matrix.
   getInverse <- function() inverted
   # Return the list of functions.
   list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
@@ -24,13 +24,13 @@ cacheSolve <- function(x, ...) {
   inverted <- x$getInverse()
   # If the inverted matrix already exists, return it.
   if (!is.null(inverted)) {
-    message("getting cached inverted matrix")
+    message("Your matrix is already inverted. I get it from the cache for you.")
     return(inverted)
   }
   # If the matrix is not yet inverted, do it.
   matrix <- x$get()
   inverted <- solve(matrix, ...)
   # Cache the inverted matrix and return it.
-  x$setinv(inverted)
+  x$setInverse(inverted)
   inverted
 }
